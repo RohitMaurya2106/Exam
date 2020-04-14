@@ -1,0 +1,109 @@
+{% extends 'baselayout.html' %}
+
+{% load static from staticfiles %}
+{% block content %}
+{% if user.is_authenticated %}
+{% if question.att == True %}
+ <div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_content"><h3>{{question.ques}}</h3></div>
+						<div class="home_search_content">
+							<form action="submit_q2" method="post" class="home_search_form" id="home_search_form1">
+
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+
+									{% if question.value == 2 %}
+									{% if question.ans == question.anscopy %}
+									<div class="intro_icon"><img src="{% static 'images/right.svg' %}" alt=""></div>
+									{% endif %}
+									{% if question.anscopy != "__" and question.anscopy != question.ans %}
+									<div class="intro_icon"><img src="{% static 'images/close.svg' %}" alt=""></div>
+									{% endif %}
+									<div class="home_search_content"><h5>Submitted Answer: {{question.anscopy}}</h5></div>
+									{% else %}
+                                    <div class="home_search_content"><h5>Submitted Answer: {{question.anscopy}}</h5></div>
+									<br>
+									{% endif %}
+								</div>
+							</form>
+							<form action="time1" method="post" class="home_search_form" id="home_search_form2">
+										{% csrf_token %}
+										<input type="text" value="{{user.username}}" name="username" hidden>
+										<input type="text"  value="2" name="ques" hidden/>
+										<input type="text" id="hrs2" name="totalhrs" value="" hidden/>
+										<input type="text" id="min2" name="totalmin" value="" hidden/>
+										<input type="text" id="sec2" name="totalsec" value="" hidden/>
+									<input class="home_search_button" value="back" formaction="time_1" formmethod="post" type="submit"/>
+                                    <button class="home_search_button" type="submit">Skip</button>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% else %}
+ <div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+                        <div class="home_search_content"><h3>{{question.ques}}</h3></div>
+						<div class="home_search_content">
+							<form action="submit_q2" method="post" class="home_search_form" id="home_search_form">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+                                    {% csrf_token %}
+                                    <p><input type="radio" name="question2" id="o1" value="Dell" required>Dell</p>
+                                    <p><input type="radio" name="question2" id="o2" value="Apple" required>Apple</p>
+                                    <p><input type="radio" name="question2" id="o3" value="Microsoft" required>Microsoft</p>
+                                    <p><input type="radio" name="question2" id="o4" value="IBM" required>IBM</p>
+									<p><input type="radio" name="question2" id="o5" value="__" checked hidden></p>
+									<input type="text"  value="2" name="ques" hidden/>
+									<input type="text" id="hrs1" name="totalhrs" value="" hidden/>
+									<input type="text" id="min1" name="totalmin" value="" hidden/>
+									<input type="text" id="sec1" name="totalsec" value="" hidden/>
+
+									<input type="text" value="{{user.username}}" name="username" hidden>
+									<input class="home_search_button" value="Review" formaction="review" formmethod="post" type="submit"/>
+                                    <br><button class="home_search_button" type="submit">Submit Choice</button><br>
+
+								</div>
+							</form>
+							<div>
+								<form action="time1" method="post" class="home_search_form" id="home_search_form2">
+										{% csrf_token %}
+										<input type="text" value="{{user.username}}" name="username" hidden>
+										<input type="text"  value="2" name="ques" hidden/>
+										<input type="text" id="hrs2" name="totalhrs" value="" hidden/>
+										<input type="text" id="min2" name="totalmin" value="" hidden/>
+										<input type="text" id="sec2" name="totalsec" value="" hidden/>
+
+									<input class="home_search_button" value="back" formaction="time_1" formmethod="post" type="submit"/>
+                                    <button class="home_search_button" type="submit">Skip</button>
+							</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+{% else %}
+    <div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div class="home_search_title">To View Question Login First</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+ {% endblock %}

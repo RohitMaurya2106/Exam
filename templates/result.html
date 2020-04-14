@@ -1,0 +1,81 @@
+{% extends 'home.html' %}
+{% load static from staticfiles %}
+{% block review %}
+{% if user.is_authenticated %}
+<div class="news" id="news">
+        <div class="col text-center">
+					<div class="section_subtitle">Lets Check</div>
+					<div class="section_title"><h2>Review Page</h2></div>
+				</div>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-xl-8">
+					<div class="news_container">
+
+						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<div >
+								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+									{% if cond.q1 != 2 and cond.q2 != 2 and cond.q3 != 2 %}
+                                    {% for message in messages %}
+                                    <h3> {{message}} </h3>
+                                    {% endfor %}
+                                    {% else %}
+                                    <form action="save_prog" method="post" class="home_search_form">
+
+                                            {% csrf_token %}
+                                            <input type="text" value="{{user.username}}" name="username" hidden>
+                                            <input type="text"  name="hrs1" value="" hidden/>
+                                            <input type="text"  name="min1" value="" hidden/>
+                                            <input type="text"  name="sec1" value="" hidden/>
+                                        <button class="home_search_button" type="submit">Final Submit</button>
+                                    </form>
+                                    {% endif %}
+								</div>
+                                {% for question in questions %}
+								<div class="home_search_content">Q{{question.id}}.) {{question.ques}}</a></div>
+								{% if question.value == 2 %}
+                                        <div class="news_post_text">
+
+                                            <div class="news_post_category"><h5>Submitted Answer: {{question.anscopy}}</h5>
+                                            </div>
+                                        </div>
+                                 {% endif %}
+                                {% if question.value == 1 %}
+                                         <div class="news_post_text">
+
+                                             <div class="news_post_category"><h5>{{question.anscopy}}</h5>
+                                             </div>
+
+
+                                         </div>
+                                {% endif %}
+                                {% if question.value == 3 %}
+                                    {% if question.anscopy != "__" %}
+                                         <div class="news_post_text">
+
+                                             <div class="news_post_category"><h5>Review Option: {{question.anscopy}}</h5>
+                                             </div>
+                                         </div>
+                                    {% endif %}
+                                <div >
+                                        <form>
+								    <div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+                                    {% csrf_token %}
+									<a href="question{{question.id}}"><button class="home_search_button" type="button">Review</button></a>
+								    </div>
+							            </form>
+                                    </div>
+                            </div>
+                                {% endif %}
+							</div>
+						</div>
+                        {% endfor %}
+					</div>
+				</div>
+
+			</div>
+		</div>
+	{% endif %}
+</div>
+{% endblock %}

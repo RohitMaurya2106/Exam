@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+    <div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+
+							<form action="intro" method="post" class="home_search_form" id="home_search_form">
+
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+                                    {% csrf_token %}
+
+                                    <input type="text" value="{{user.username}}" name="username" hidden>
+
+                                    <br><button class="home_search_button" type="submit">CLick to start journey</button><br>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% else %}
+    <div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						<div >To Start First Login</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% endblock %}

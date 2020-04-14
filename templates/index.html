@@ -1,0 +1,612 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Exam Hall</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Travello template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+      <link rel="stylesheet" href="{% static './style.css' %}">
+</head>
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="header_content d-flex flex-row align-items-center justify-content-start">
+						<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+							<div class="logo"><a href="">Exam Portal</a></div>
+							<nav class="main_nav">
+								<ul class="d-flex flex-row align-items-start justify-content-start">
+									<li class="active"><a href="">Home</a></li>
+									<li><a href="#" data-scroll-to="#news">About us</a></li>
+
+									{% if user.is_authenticated %}
+									<li><a href="#">{{user.first_name}} {{user.last_name}}</a></li>
+									<li><a href="accounts/logout">Logout</a></li>
+									{% else %}
+									<li><a href="accounts/ad_login">Register</a></li>
+									{% endif %}
+								</ul>
+							</nav>
+							<div class="header_phone ml-auto">Call us: +91-9205910545</div>
+
+							<!-- Hamburger -->
+
+							<div class="hamburger ml-auto">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header_social d-flex flex-row align-items-center justify-content-start">
+			<ul class="d-flex flex-row align-items-start justify-content-start">
+				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu">
+		<div class="menu_header d-flex flex-row align-items-center justify-content-start">
+			<div class="menu_logo"><a href="index.html">Exam Hall</a></div>
+			<div class="menu_close_container ml-auto"><div class="menu_close"><div></div><div></div></div></div>
+		</div>
+		<div class="menu_content">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#" data-scroll-to="#news">About us</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="news.html">News</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+		<div class="menu_social">
+			<div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
+			<ul class="d-flex flex-row align-items-start justify-content-start">
+				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- Home -->
+
+	<div class="home">
+		
+		<!-- Home Slider -->
+		<div class="home_slider_container">
+			<div class="owl-carousel owl-theme home_slider">
+				
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url({% static 'images/front_home1.jpg' %})"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Exam Hall</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url({% static 'images/home2.jpg' %})"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Be Silent</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url({% static 'images/home3.jpg' %})"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Keep Calm</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="home_page_nav">
+				<ul class="d-flex flex-column align-items-end justify-content-end">
+					<li><a href="#" data-scroll-to="#destinations">Question<span></span></a></li>
+					<li><a href="#" data-scroll-to="#testimonials">Result Terminal<span></span></a></li>
+					<li><a href="#" data-scroll-to="#news">Updates<span></span></a></li>
+                    <li><a href="#" data-scroll-to="#feedback">Feedback<span></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Login -->
+
+	<div class="home_search">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="home_search_container">
+						{% if user.is_authenticated %}
+						<div class="home_search_title">Good Luck! {{user.first_name}} {{user.last_name}}</div>
+						{% else %}
+						<div class="home_search_title">Login</div>
+						<div class="home_search_content">
+							<form action="login" method="post" class="home_search_form" id="home_search_form">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									{% csrf_token %}
+									<input type="text" class="search_input search_input_1" placeholder="Username" name="username" required="required">
+									<input type="password" class="search_input search_input_2" placeholder="Password" name="password" required="required">
+
+									{% endif %}
+								</div>
+								<div class="home_search_title"><button class="home_search_button" type="submit">Login</button></div>
+							</form>
+							{% for message in messages %}
+    							<h3> {{message}} </h3>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Intro -->
+{% if user.is_authenticated %}
+	<div class="intro" id="time">
+		<div class="intro_background" style="background-image:url({% static 'images/intro.png' %})"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="intro_container">
+						<div class="row">
+							<!-- Intro Item -->
+							 <div class="countdown">
+								<div class="bloc-time hours" data-init-value="{{time.hours}}">
+								  <span class="count-title">Hours</span>
+
+								  <div class="figure hours hours-1">
+									<span class="top">{{time.thours}}</span>
+									<span class="top-back">
+									  <span>{{time.thours}}</span>
+									</span>
+									<span class="bottom">{{time.thours}}</span>
+									<span class="bottom-back">
+									  <span>{{time.thours}}</span>
+									</span>
+								  </div>
+
+								  <div class="figure hours hours-2">
+									<span class="top">{{time.bhours}}</span>
+									<span class="top-back">
+									  <span>{{time.bhours}}</span>
+									</span>
+									<span class="bottom">{{time.bhours}}</span>
+									<span class="bottom-back">
+									  <span>{{time.bhours}}</span>
+									</span>
+								  </div>
+								</div>
+
+								<div class="bloc-time min" data-init-value="{{time.minutes}}">
+								  <span class="count-title">Minutes</span>
+
+								  <div class="figure min min-1">
+									<span class="top">{{time.tminutes}}</span>
+									<span class="top-back">
+									  <span>{{time.tminutes}}</span>
+									</span>
+									<span class="bottom">{{time.tminutes}}</span>
+									<span class="bottom-back">
+									  <span>{{time.tminutes}}</span>
+									</span>
+								  </div>
+
+								  <div class="figure min min-2">
+								   <span class="top">{{time.bminutes}}</span>
+									<span class="top-back">
+									  <span>{{time.bminutes}}</span>
+									</span>
+									<span class="bottom">{{time.bminutes}}</span>
+									<span class="bottom-back">
+									  <span>{{time.bminutes}}</span>
+									</span>
+								  </div>
+								</div>
+
+								<div class="bloc-time sec" data-init-value="{{time.seconds}}">
+								  <span class="count-title">Seconds</span>
+
+									<div class="figure sec sec-1">
+									<span class="top">{{time.tseconds}}</span>
+									<span class="top-back">
+									  <span>{{time.tseconds}}</span>
+									</span>
+									<span class="bottom">{{time.tseconds}}</span>
+									<span class="bottom-back">
+									  <span>{{time.tseconds}}</span>
+									</span>
+								  </div>
+
+								  <div class="figure sec sec-2">
+									<span class="top">{{time.bseconds}}</span>
+									<span class="top-back">
+									  <span>{{time.bseconds}}</span>
+									</span>
+									<span class="bottom">{{time.bseconds}}</span>
+									<span class="bottom-back">
+									  <span>{{time.bseconds}}</span>
+									</span>
+								  </div>
+								</div>
+							  </div>
+						</div>
+							<input type="text" id="hrs" name="total" value=""hidden/>
+  							<input type="text" id="min" name="total" value=""hidden/>
+  							<input type="text" id="sec" name="total" value=""hidden/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+	<!-- Destinations -->
+
+
+	<div class="destinations" id="destinations">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">Lets Begin</div>
+					<div class="section_title"><h2>Question Pool</h2></div>
+				</div>
+			</div>
+			<div class="row destinations_row">
+				<div class="col">
+					<div class="destinations_container item_grid">
+						{% for dest in dests %}
+
+						<!-- Destination -->
+						<div class="destination item">
+							<div class="destination_image">
+								{% if dest.att == True %}
+								<a href="question{{dest.id}}"><img src="{% static 'images/contract.png' %}" alt=""></a>
+								<div class="spec_offer text-center"><a href="question{{dest.id}}">Submitted</a></div>
+								{% else %}
+								<a href="question{{dest.id}}"><img src="{% static 'images/file.png' %}" alt=""></a>
+								<div class="spec_offer text-center"><a href="question{{dest.id}}">Not submitted</a></div>
+								{% endif %}
+							</div>
+							<div class="destination_content">
+								<div class="destination_title">
+									<form action="question{{dest.id}}" method="post" class="home_search_form">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+									{% csrf_token %}
+									<input type="text" value="{{user.username}}" name="username" hidden>
+									<input type="text" id="hrs1" name="totalhrs" value="" hidden/>
+									<input type="text" id="min1" name="totalmin" value="" hidden/>
+									<input type="text" id="sec1" name="totalsec" value="" hidden/>
+								</div>
+								<div class="home_search_title"><button class="home_search_button" type="submit">Question No.: {{dest.id}}</button></div>
+									</form>
+								</div>
+								<div class="destination_subtitle"><p></p></div>
+
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+			</div>
+
+	</div>
+
+	<!-- Testimonials -->
+	<div class="testimonials" id="testimonials">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/rester2.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<div class="section_subtitle">Learning never exhausts the mind</div>
+					<div class="section_title"><h2>Result Terminal</h2></div>
+				</div>
+			</div>
+			<div class="row testimonials_row">
+				<div class="col">
+
+					<!-- Testimonials Slider -->
+					{% for des in dests %}
+					{% if des.id == 3 %}
+					<div class="testimonials_slider_container">
+						<div class="owl-carousel owl-theme testimonials_slider">
+							
+							<!-- Slide -->
+							<div class="owl-item text-center">
+								<div class="testimonial">Number of Question Attempt :<span>{{des.score1}}</span></div>
+								<div class="testimonial_author">
+									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+										<div>Leonardo da Vinci</div>
+										<div>&copy;</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Slide -->
+							<div class="owl-item text-center">
+								<div class="testimonial">Number of Question Wrong :<span>{{des.score2}}</span></div>
+								<div class="testimonial_author">
+									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+										<div>Leonardo da Vinci</div>
+										<div>&copy;</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Slide -->
+							<div class="owl-item text-center">
+								<div class="testimonial">Result :<span>{{des.score3}}</span></div>
+								<div class="testimonial_author">
+									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+										<div>Leonardo da Vinci</div>
+										<div>&copy;</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="test_nav">
+			<ul class="d-flex flex-column align-items-end justify-content-end">
+				<li><a href="#">Number of Question Attempt :<span>{{des.score1}}</span></a></li>
+				<li><a href="#">Number of Question Wrong :<span>{{des.score2}}</span></a></li>
+				<li><a href="#">Result :<span>{{des.score3}}</span></a></li>
+			</ul>
+		</div>
+		{% endif %}
+		{% endfor %}
+	</div>
+
+
+	<!-- News -->
+
+	<div class="news" id="news">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-8">
+					<div class="news_container">
+						
+						<!-- News Post -->
+						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<div class="news_post_image"><img src="{% static 'images/news_11.jpg' %}" alt=""></div>
+							<div class="news_post_content">
+								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+									<div>20</div>
+									<div>june</div>
+								</div>
+								<div class="news_post_title"><a href="#">Biology</a></div>
+								<div class="news_post_category">
+									<ul>
+										<li><a href="#">A little progress each day adds up to big result</a></li>
+									</ul>
+								</div>
+								<div class="news_post_text">
+									<p>At &#x20B9; 999 , Register now</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- News Post -->
+						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<div class="news_post_image"><img src="{% static 'images/news_21.jpg' %}" alt=""></div>
+							<div class="news_post_content">
+								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+									<div>26</div>
+									<div>june</div>
+								</div>
+								<div class="news_post_title"><a href="#">Physics</a></div>
+								<div class="news_post_category">
+									<ul>
+										<li><a href="#">A little progress each day adds up to big result</a></li>
+									</ul>
+								</div>
+								<div class="news_post_text">
+									<p>At &#x20B9; 999 , Register now</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- News Post -->
+						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+							<div class="news_post_image"><img src="{% static 'images/news_31.jpg' %}" alt=""></div>
+							<div class="news_post_content">
+								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+									<div>29</div>
+									<div>june</div>
+								</div>
+								<div class="news_post_title"><a href="#">Mathematics</a></div>
+								<div class="news_post_category">
+									<ul>
+										<li><a href="#">A little progress each day adds up to big result</a></li>
+									</ul>
+								</div>
+								<div class="news_post_text">
+									<p>At &#x20B9; 999 , Register now</p>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- News Sidebar -->
+				<div class="col-xl-4">
+					<div class="travello">
+						<div class="background_image" style="background-image:url({% static 'images/seat.jpg' %})"></div>
+						<div class="travello_content">
+							<div class="travello_content_inner">
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+						<div class="travello_container">
+							<a href="#">
+								<div class="d-flex flex-column align-items-center justify-content-end">
+									<span class="travello_title">Get a 20% Discount</span>
+									<span class="travello_subtitle">Register now to avail offer</span>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer" id="feedback">
+		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/footer_3.jpg' %}" data-speed="0.8"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="newsletter">
+						<div class="newsletter_title_container text-center">
+							<div class="newsletter_title">Subscribe to our newsletter to get the latest Exams Updates</div>
+							<div class="newsletter_subtitle">Join our database NOW!</div>
+						</div>
+						<div class="newsletter_form_container">
+							<form action="#" class="newsletter_form d-flex flex-md-row flex-column align-items-start justify-content-between" id="newsletter_form">
+								<div class="d-flex flex-md-row flex-column align-items-start justify-content-between">
+									<div><input type="text" class="newsletter_input newsletter_input_name" id="newsletter_input_name" placeholder="Name" required="required"><div class="input_border"></div></div>
+									<div><input type="email" class="newsletter_input newsletter_input_email" id="newsletter_input_email" placeholder="Your e-mail" required="required"><div class="input_border"></div></div>
+								</div>
+								<div><button class="newsletter_button">subscribe</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row footer_contact_row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+
+						<!-- Footer Contact Item -->
+						<div class="col-xl-4 footer_contact_col">
+							<div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+								<div class="footer_contact_icon"><img src="{% static 'images/sign.svg' %}" alt=""></div>
+								<div class="footer_contact_title">give us a call</div>
+								<div class="footer_contact_list">
+									<ul>
+										<li>Office Landline: +91 5567 32 664 567</li>
+										<li>Mobile: +91 9205 91 0545</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<!-- Footer Contact Item -->
+						<div class="col-xl-4 footer_contact_col">
+							<div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+								<div class="footer_contact_icon"><img src="{% static 'images/trekking.svg' %}" alt=""></div>
+								<div class="footer_contact_title">come & drop by</div>
+								<div class="footer_contact_list">
+									<ul style="max-width:190px">
+										<li>Rajajipuram, Lucknow, UP-226017</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<!-- Footer Contact Item -->
+						<div class="col-xl-4 footer_contact_col">
+							<div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+								<div class="footer_contact_icon"><img src="{% static 'images/around.svg' %}" alt=""></div>
+								<div class="footer_contact_title">send us a message</div>
+								<div class="footer_contact_list">
+									<ul>
+										<li>Rohitmaurya2106@gmail.com</li>
+										<li>dcr@google.com</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col text-center"><!-- Link back to Rohit can't be removed. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Rohit</a>
+<!-- Link back to Rohit can't be removed. --> </div>
+	</footer>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+<script  src="{% static './script.js' %}"></script>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

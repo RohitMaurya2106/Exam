@@ -1,0 +1,306 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Exam Hall</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Travello template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+      <link rel="stylesheet" href="{% static './style.css' %}">
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="header_content d-flex flex-row align-items-center justify-content-start">
+						<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+							<div class="logo"><a href="home">Exam Portal</a></div>
+							<nav class="main_nav">
+								<ul class="d-flex flex-row align-items-start justify-content-start">
+									<li class="active"><a href="home">Home</a></li>
+									<li><a href="#" data-scroll-to="#news">About us</a></li>
+
+									{% if user.is_authenticated %}
+									<li><a href="#">{{user.first_name}} {{user.last_name}}</a></li>
+									<li><a href="accounts/logout">Logout</a></li>
+									{% else %}
+									<li><a href="accounts/ad_login">Register</a></li>
+									{% endif %}
+								</ul>
+							</nav>
+							<div class="header_phone ml-auto">Call us: +91-9205910545</div>
+
+							<!-- Hamburger -->
+
+							<div class="hamburger ml-auto">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header_social d-flex flex-row align-items-center justify-content-start">
+			<ul class="d-flex flex-row align-items-start justify-content-start">
+				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</header>
+
+	<!-- Menu -->
+
+	<div class="menu">
+		<div class="menu_header d-flex flex-row align-items-center justify-content-start">
+			<div class="menu_logo"><a href="index.html">Exam Hall</a></div>
+			<div class="menu_close_container ml-auto"><div class="menu_close"><div></div><div></div></div></div>
+		</div>
+		<div class="menu_content">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#" data-scroll-to="#news">About us</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="news.html">News</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+		<div class="menu_social">
+			<div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
+			<ul class="d-flex flex-row align-items-start justify-content-start">
+				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Home -->
+
+	<div class="home">
+
+		<!-- Home Slider -->
+		<div class="home_slider_container">
+			<div class="owl-carousel owl-theme home_slider">
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url({% static 'images/front_home1.jpg' %})"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Exam Hall</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url({% static 'images/home2.jpg' %})"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Be Silent</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" style="background-image:url({% static 'images/home3.jpg' %})"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Keep Calm</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="home_page_nav">
+				<ul class="d-flex flex-column align-items-end justify-content-end">
+                    {% if cond.value != 2 %}
+                    <li><a href="" data-scroll-to="#news">Review Page<span></span></a></li>
+					<li><a href="" data-scroll-to="#time">Time<span></span></a></li>
+                    {% else %}
+                    <li><a href="" data-scroll-to="#news">Review Page<span></span></a></li>
+                    {% endif %}
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- Login -->
+
+
+
+	<!-- Intro -->
+{% if cond.value != 2 %}
+	<div class="intro" id="time">
+		<div class="intro_background" style="background-image:url({% static 'images/intro.png' %})"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="intro_container">
+						<div class="row">
+
+
+							<!-- Intro Item -->
+							 <div class="countdown">
+								<div class="bloc-time hours" data-init-value="{{time.hours}}">
+								  <span class="count-title">Hours</span>
+
+								  <div class="figure hours hours-1">
+									<span class="top">{{time.thours}}</span>
+									<span class="top-back">
+									  <span>{{time.thours}}</span>
+									</span>
+									<span class="bottom">{{time.thours}}</span>
+									<span class="bottom-back">
+									  <span>{{time.thours}}</span>
+									</span>
+								  </div>
+
+								  <div class="figure hours hours-2">
+									<span class="top">{{time.bhours}}</span>
+									<span class="top-back">
+									  <span>{{time.bhours}}</span>
+									</span>
+									<span class="bottom">{{time.bhours}}</span>
+									<span class="bottom-back">
+									  <span>{{time.bhours}}</span>
+									</span>
+								  </div>
+								</div>
+
+								<div class="bloc-time min" data-init-value="{{time.minutes}}">
+								  <span class="count-title">Minutes</span>
+
+								  <div class="figure min min-1">
+									<span class="top">{{time.tminutes}}</span>
+									<span class="top-back">
+									  <span>{{time.tminutes}}</span>
+									</span>
+									<span class="bottom">{{time.tminutes}}</span>
+									<span class="bottom-back">
+									  <span>{{time.tminutes}}</span>
+									</span>
+								  </div>
+
+								  <div class="figure min min-2">
+								   <span class="top">{{time.bminutes}}</span>
+									<span class="top-back">
+									  <span>{{time.bminutes}}</span>
+									</span>
+									<span class="bottom">{{time.bminutes}}</span>
+									<span class="bottom-back">
+									  <span>{{time.bminutes}}</span>
+									</span>
+								  </div>
+								</div>
+
+								<div class="bloc-time sec" data-init-value="{{time.seconds}}">
+								  <span class="count-title">Seconds</span>
+
+									<div class="figure sec sec-1">
+									<span class="top">{{time.tseconds}}</span>
+									<span class="top-back">
+									  <span>{{time.tseconds}}</span>
+									</span>
+									<span class="bottom">{{time.tseconds}}</span>
+									<span class="bottom-back">
+									  <span>{{time.tseconds}}</span>
+									</span>
+								  </div>
+
+								  <div class="figure sec sec-2">
+									<span class="top">{{time.bseconds}}</span>
+									<span class="top-back">
+									  <span>{{time.bseconds}}</span>
+									</span>
+									<span class="bottom">{{time.bseconds}}</span>
+									<span class="bottom-back">
+									  <span>{{time.bseconds}}</span>
+									</span>
+								  </div>
+								</div>
+							  </div>
+							</div>
+						<input type="text" id="hrs1" name="totalhrs" value="" hidden/>
+						<input type="text" id="min1" name="totalmin" value="" hidden/>
+						<input type="text" id="sec1" name="totalsec" value="" hidden/>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+{% endif %}
+	<!-- Destinations -->
+
+	{% block review %}
+
+    {% endblock %}
+	<!-- Testimonials -->
+
+
+
+	<!-- News -->
+
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+<script  src="{% static './script.js' %}"></script>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
